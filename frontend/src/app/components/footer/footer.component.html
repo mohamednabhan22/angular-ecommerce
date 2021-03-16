@@ -16,8 +16,8 @@
 </div>
 <div class="col-md-4">
     <h3>{{'Subscribe'|translate}}</h3>
-    <input type="email" placeholder="Email">
-    <button>{{'send'|translate}}</button>
+    <input #email type="email" placeholder="Email">
+    <button (click)="email.value=''" [routerLink]="['service']" >{{'send'|translate}}</button>
 </div>
 
 </div>

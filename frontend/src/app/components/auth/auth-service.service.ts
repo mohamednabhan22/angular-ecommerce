@@ -38,7 +38,7 @@ isAdminGuard(): boolean {
     let data={
       username,email,password,confirmPassword
     }
- return this.http.post('http://localhost:3000/signup',data)
+ return this.http.post('signup',data)
   }
 
   login(email,password){
@@ -46,7 +46,7 @@ isAdminGuard(): boolean {
     email,password
     }
     this.user=data
-  this.http.post<any>('http://localhost:3000/login',data).subscribe(
+  this.http.post<any>('login',data).subscribe(
 
   (res)=>{
     console.log(res.isAdmin)

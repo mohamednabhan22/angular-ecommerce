@@ -17,7 +17,6 @@
 
         <input   ngModel #confirmPassword="ngModel"  type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required>
         <div class="alert alert-danger"*ngIf="confirmPassword.touched && confirmPassword.errors?.required"> confirmPassword is required</div>
-        <div  class="alert alert-danger"*ngIf="confirmPassword.touched&&password!=confirmPassword  ">  Passwords doesnot match        </div>
 
         <input   ngModel type="submit" value="Create Account" class="btn btn-primary">
     </form>

@@ -31,46 +31,46 @@ getToken() {
 }
     
 getProducts():Observable<any>{
-  return this.http.get('http://localhost:3000')
+  return this.http.get('home')
 
 }
 
   getProduct(id):Observable<any>{
-   return this.http.get<any>(`http://localhost:3000/product/${id}`)
+   return this.http.get<any>(`product/${id}`)
    
   }
 getCart():Observable<any>{
 
-  return this.http.get<any>(`http://localhost:3000/cart`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+  return this.http.get<any>(`cart`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
 }
 
 getCartItem(id):Observable<any>{
   let productId=id
 
-   return this.http.get<any>(`http://localhost:3000/cart/${productId}`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.get<any>(`cart/${productId}`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
 
  deleteCartItem(id):Observable<any>{
   let cartId={cartId:id}
 
-   return this.http.post<any>(`http://localhost:3000/cart/delete`,cartId,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.post<any>(`cart/delete`,cartId,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
 AddToCart(name,price,amount,productId):Observable<any>{
   let data={
     name,price,amount,productId
   }
-   return this.http.post<any>(`http://localhost:3000/cart`,data,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.post<any>(`cart`,data,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
 
  decreaseItem(id):Observable<any>{
   let data={
     cartId:id
   }
-   return this.http.post<any>(`http://localhost:3000/cart/decrease`,data,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.post<any>(`cart/decrease`,data,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
  deleteAllItems():Observable<any>{
   
-   return this.http.delete<any>(`http://localhost:3000/cart/deleteAll`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.delete<any>(`cart/deleteAll`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
 
 
@@ -84,11 +84,11 @@ AddToCart(name,price,amount,productId):Observable<any>{
   formData.append('category',category);
 
 
-   return this.http.post<any>(`http://localhost:3000/admin/add`,formData,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+   return this.http.post<any>(`admin/add`,formData,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
  }
 
  deleteProduct(id):Observable<any>{
   
-  return this.http.delete<any>(`http://localhost:3000/admin/delete/${id}`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
+  return this.http.delete<any>(`admin/delete/${id}`,{ headers: new HttpHeaders({'x-access-token':this.getToken()})})
 }
 }

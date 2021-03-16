@@ -59,7 +59,7 @@ filterProducts
         this.filterProducts=res.products
         
         },(err)=>{
-          console.log(err.error.message)
+          console.log(err)
         })
    
   }
